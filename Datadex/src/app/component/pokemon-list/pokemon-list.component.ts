@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PokedexService } from 'src/app/pokedex.service';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonListComponent implements OnInit {
 
-  constructor() { }
+  pokemons: any [] = [];
+
+  constructor(private pokedexservice : PokedexService) {
+    //this.fetchAllPokemons();
+  }
 
   ngOnInit(): void {
+    this.pokedexservice.getPokemons()
+      .subscribe((response:any) => {
+        console.log(response);
+      });
   }
+
+  /* fetchAllPokemons(){
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+    .then(response => response.json())
+    .then((allpokemons) => {
+      console.log(allpokemons.results);
+      this.pokemons = allpokemons.results;
+    });
+  } */
+
+
 
 }

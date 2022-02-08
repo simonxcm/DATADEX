@@ -10,17 +10,10 @@ import { PokedexService} from './pokedex.service'
   providers:[PokedexService]
 })
 export class AppComponent implements OnInit {
-  pokemonName: any;
-  url= 'https://pokeapi.co/api/v2/pokemon/{name}'
-  constructor(private service: PokedexService){}
-  getPokemonName(): void{
-    this.service.getData(this.url).subscribe(data=>this.pokemonName=data)
-  }
 
+  constructor(private service: PokedexService){}
 
   ngOnInit(): void {
-    this.getPokemonName
   }
-
   title = 'Datadex';
 }
