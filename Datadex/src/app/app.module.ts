@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { PokedexHomepageComponent } from './pokedex-homepage/pokedex-homepage.component';
 import { PokemonItemComponent } from './component/pokemon-item/pokemon-item.component';
 import { PokemonListComponent } from './component/pokemon-list/pokemon-list.component';
+import { PokedexService } from './pokedex.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,10 @@ import { PokemonListComponent } from './component/pokemon-list/pokemon-list.comp
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [PokedexService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

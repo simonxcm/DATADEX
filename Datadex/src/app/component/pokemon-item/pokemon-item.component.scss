@@ -1,10 +1,66 @@
 .pokemon-item {
+  display: flex;
+  background-color: lightgoldenrodyellow;
   width: 95%;
-  height: 60px;
-  .infos{
+  height: 100px;
+  margin: 30px auto;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+  .infos {
     width: 70%;
+    height: 100%;
+
+    .top-elements {
+      height: 50%;
+      width: 100%;
+      //border: 1px dashed black;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .name {
+      display: flex;
+      align-items: center;
+
+      div {
+        margin-left: 20px
+      }
+    }
+
+    .favorite {
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+    }
+
+    .type {
+      height: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      //border: 1px dashed black;
+
+      .type-tag {
+        width: 80%;
+        height: 50%;
+        background-color: antiquewhite;
+        border: 1px solid black;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+    }
+
   }
+
   .photo{
     width: 30%;
+    height: 100%;
+    background-color: azure;
+
   }
 }
