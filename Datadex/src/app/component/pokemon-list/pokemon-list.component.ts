@@ -1,5 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { PokedexService } from 'src/app/pokedex.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { PokedexService } from '../../pokedex.service';
+
+export interface Pokemon {
+  name: string;
+  url: string;
+  details?: PokemonDetails[];
+  id: number;
+}
+
+export interface PokemonDetails {
+  id: number;
+  types: PokemonType [];
+  sprites: PokemonSprites;
+}
+
+export interface PokemonType {
+  slot: number;
+  types: PokemonTypeDetails;
+}
+
+export interface PokemonTypeDetails {
+  name: string;
+  url: string;
+}
+
+export interface PokemonSprites {
+
+}
+
+
 
 @Component({
   selector: 'app-pokemon-list',
@@ -10,14 +39,21 @@ export class PokemonListComponent implements OnInit {
 
   pokemons: any [] = [];
 
-  constructor(private pokedexservice : PokedexService) {
+  constructor(private pokedexService : PokedexService) {
     //this.fetchAllPokemons();
   }
 
   ngOnInit(): void {
-    this.pokedexservice.getPokemons()
-      .subscribe((response:any) => {
-        console.log(response);
+
+    this.pokedexService.getPokemons()
+      .subscribe((response: any) => {
+        response.results.forEach((result: Pokemon) => {
+          this.pokedexService.getPokemonName(result.name)
+            .subscribe((uniqResponse: any) => {
+              this.pokemons.push(uniqResponse);
+              //console.log(this.pokemons);
+            });
+        });
       });
   }
 

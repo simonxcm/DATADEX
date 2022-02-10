@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { PokedexService } from 'src/app/pokedex.service';
+import { Pokemon } from '../pokemon-list/pokemon-list.component';
+
+
 
 @Component({
   selector: 'app-pokemon-item',
   templateUrl: './pokemon-item.component.html',
   styleUrls: ['./pokemon-item.component.scss']
 })
+
 export class PokemonItemComponent implements OnInit {
 
-  constructor() { }
+  @Input() pokemon: any | undefined ;
 
-  ngOnInit(): void {
+  constructor(private pokedexService : PokedexService) {
+    //this.fetchAllPokemons();
   }
 
+  ngOnInit(): void {
+    console.log(this.pokemon);
+  }
 }

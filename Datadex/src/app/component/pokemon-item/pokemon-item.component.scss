@@ -1,11 +1,10 @@
 .pokemon-item {
   display: flex;
-  background-color: lightgoldenrodyellow;
   width: 95%;
   height: 100px;
   margin: 30px auto;
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
   .infos {
     width: 70%;
@@ -38,15 +37,14 @@
       height: 50%;
       width: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: left;
       align-items: center;
+      padding: 0 10px;
       //border: 1px dashed black;
 
       .type-tag {
-        width: 80%;
+        width: 40%;
         height: 50%;
-        background-color: antiquewhite;
-        border: 1px solid black;
         border-radius: 20px;
         display: flex;
         align-items: center;
